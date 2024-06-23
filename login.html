@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        fieldset{
+            width : "500px";
+        }
+        table tr td{
+            padding-top: 6x;
+            padding-bottom: 6px;
+        }
+    </style>
+    <script>
+        function validate(){
+            let p = frm.pwd.value;
+            let pl = p.length;
+            if(pl<8){
+                alert("password must be 8 characters long")
+                return false
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h2>Login</h2>
+        <form name = "frm" method = "POST" action = "success2.html" onsubmit="return validate()">
+            <fieldset>
+                <table>
+                <tr>
+                    <td>Username</td>
+                    <td><input type = "text" name = "user" value = "" required></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type = "password" name = "pwd" value = "" required></td>
+                </tr>
+            </table>
+            <input type = "submit" value = "Login" name = "submit">
+            <a href = "register.html"><input type = "button" value = "Registration" name = "submit"> </a>
+            </fieldset>
+        </form>
+    </center>
+</body>
+</html>

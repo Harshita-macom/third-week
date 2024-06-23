@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <style>
+        fieldset{
+            width : 500px;
+        }
+        table tr, td{
+            padding-top : 6px;
+            padding-bottom : 6px;
+        }
+    </style>
+    <script>
+        function validate(){
+            let fn = frm.first.value;
+            for(let x in fn){
+                let ch = fn.charCodeAt(x);
+                if(ch < 65 || ch > 90 && ch < 97 && ch > 122){
+                    alert("Invalid first name");
+                    return False;
+                }
+            }
+            let ln = frm.last.value;
+            for(let x in ln){
+                let ch = ln.charCodeAt(x);
+                if(ch < 65 || ch > 90 && ch < 97 && ch > 122){
+                    alert("wrong last name");
+                    return false;
+                }
+            }
+            let phn = frm.phone.value;
+            let phnl = phn.length;
+            if(phnl < 10){
+                alert("phone number should contain exactly 10 digits");
+                return false;
+            }
+            let reg = '@'
+            let mail = frm.email.value;
+            if(reg.test(mail)){
+                alert("invalid email");
+                return false;
+            }
+            let p1 = frm.pwd.value;
+            let p1l = p1.length;
+            if(p1l < 8){
+                alert("password has to be atleast 8 characters long")
+                return False;
+            }
+            return True
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h2>Registration</h2>
+        <form name = "frm" action="success.html" onsubmit="return validate()">
+            <fieldset>
+                <table>
+                    <tr>
+                        <td>first name</td>
+                        <td><input type = "text" name = "first" value = "" required></td>
+                    </tr>
+                    <tr>
+                        <td>last name</td>
+                        <td><input type = "text" name = "last" value = "" required></td>
+                    </tr>
+                    <tr>
+                        <td>phone number</td>
+                        <td><input type = "number" name = "phone" value = "" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type = "text" name = "email" value = "" required></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>Male<input type = "radio" name = "gender" value = "male"></td>
+                        <td>Female<input type = "radio" name = "gender" value = "female"></td>
+                    </tr>
+                    <tr>
+                        <td>date of birth</td>
+                        <td><input type = "date" name = "dob" required></td>
+                    </tr>
+                    <tr>
+                        <td>Username</td>
+                        <td><input type = "text" name = "user" value = "" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type = "password" name = "pwd" required> </td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td><input type = "number" name = "age" required></td>
+                    </tr>
+                </table>
+                <input type = "submit" value = "Registration" name = "submit">
+                <a href = "login.html">
+                    <input type = "button" value = "login" name = "submit">
+                </a>
+            </fieldset>
+        </form>
+    </center>
+</body>
+</html>
